@@ -1,0 +1,51 @@
+<style>
+  /*Limited stock color updated - Rusho*/
+   /*render path link to themes -  product-template*/
+   /*worked for : https://zoey-melbourne.com/collections/best-sellers/products/adele%C2%AE-intemporelle-belly-dress*/
+   /*Store not publish yet use pass - 12345 to view the design*/
+  /**
+  {% render "clearance-banner-rusho" %}
+  */
+
+
+
+span[data-product-inventory]{
+  color: orange;
+}
+
+.sale-banner {
+  background-color: #d5f5d1; 
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+  text-align: center;
+  width: fit-content;
+  height: auto;
+}
+
+.sale-banner .sale-text {
+  font-size: 18px;
+  color: #2d7a00; 
+  font-weight: bold;
+}
+
+.sale-clearance {
+  Color: #2d7a00;
+  display: inline-block;
+  height: 20px;
+  vertical-align: middle;
+  width: 20px;
+}
+
+</style>
+ 
+ {% if product.compare_at_price > product.price %} 
+  <div class="sale-banner">
+      <svg class="sale-clearance" stroke-width="1" aria-hidden="true" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+        <path fill="currentColor" d="M7.59 1.34a1 1 0 01.7-.29h5.66a1 1 0 011 1v5.66a1 1 0 01-.3.7L7.6 15.5a1 1 0 01-1.42 0L.52 9.83a1 1 0 010-1.42l7.07-7.07zm6.36 6.37l-7.07 7.07-5.66-5.66L8.3 2.05h5.66v5.66z" fill-rule="evenodd"></path>
+        <path fill="currentColor" d="M9.7 6.3a1 1 0 101.42-1.42 1 1 0 00-1.41 1.41zM9 7a2 2 0 102.83-2.83A2 2 0 009 7z" fill-rule="evenodd"></path>
+      </svg>
+      <span class="sale-text">CLEARANCE SALE ENDS TODAY</span>
+  </div>
+{% endif %}
+ 

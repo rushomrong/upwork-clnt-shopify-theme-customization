@@ -1,0 +1,38 @@
+<style>
+  /*Sale clearance text below the Add to cart button*/
+  /*render path link to themes -  product-form*/
+  /*worked for : https://zoey-melbourne.com/collections/best-sellers/products/adele%C2%AE-intemporelle-belly-dress*/
+  /*Store not publish yet use pass - 12345 to view the design*/
+  /**
+  {% render "clearance-update-rusho" %}
+  */
+
+.clearance-sale-update {
+  background-color: #fbeae5; 
+  color: #d9534f; 
+  font-size: 19px;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 8px;
+  text-align: left; 
+  font-weight: 900;
+}
+
+</style>
+<div id="clearance-sale-message" class="clearance-sale-update" style="display: none;">
+    <strong>UPDATE CLEARANCE SALE:</strong> Stock is limited... if you can still press add to cart, that means it's still in stock...
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+  // Add a delay to show the clearance message after trust badges load
+  setTimeout(function() {
+    var clearanceMessage = document.getElementById("clearance-sale-message");
+    if (clearanceMessage) {
+      clearanceMessage.style.display = "block";
+    }
+  }, 2000); // Delay for 2 seconds (2000 ms)
+});
+
+</script>
+
