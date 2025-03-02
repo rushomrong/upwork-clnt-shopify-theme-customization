@@ -19,20 +19,43 @@
 }
 
 </style>
+{% if product.compare_at_price > product.price %} 
 <div id="clearance-sale-message" class="clearance-sale-update" style="display: none;">
-    <strong>UPDATE CLEARANCE SALE:</strong> Stock is limited... if you can still press add to cart, that means it's still in stock...
+    <strong> UPDATE <u><span id="seasonTitle"></span></u>:</strong> Stock is limited... if you can still press add to cart, that means it's still in stock...
 </div>
+{% endif %}
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-  // Add a delay to show the clearance message after trust badges load
-  setTimeout(function() {
-    var clearanceMessage = document.getElementById("clearance-sale-message");
-    if (clearanceMessage) {
-      clearanceMessage.style.display = "block";
-    }
-  }, 2000); // Delay for 2 seconds (2000 ms)
-});
+    // Add a delay to show the clearance message after trust badges load
+    setTimeout(function() {
+      var clearanceMessage = document.getElementById("clearance-sale-message");
+      if (clearanceMessage) {
+        clearanceMessage.style.display = "block";
+      }
+    }, 2000); // Delay for 2 seconds (2000 ms)
 
-</script>
+    // Set the seasonal title
+    const seasonTitle = document.getElementById("seasonTitle");
+
+    function getSeason() {
+      const month = new Date().getMonth() + 1;
+
+      if (month >= 12 || month <= 2) {
+        return "☀️ SUMMER SALE 🏝️";
+      } else if (month >= 3 && month <= 5) {
+        return "🍂 AUTUMN DEALS 🍁";
+      } else if (month >= 6 && month <= 8) {
+        return "❄️ WINTER DISCOUNTS ⛄";
+      } else {
+        return "🌸 SPRING OFFERS 🌿";
+      }
+    }
+
+    // Ensure the element exists before updating text
+    if (seasonTitle) {
+      seasonTitle.textContent = getSeason();
+    }
+  });
+</script> 
 
